@@ -23,7 +23,7 @@ react + webpack template to get you started. [react-tutorial](http://facebook.gi
 ### Includes
 - configuration files
 - webpack
-- facebooks react
+- react
 - webpack-Loaders
     - JSX-Loader
     - Styles-Loader
