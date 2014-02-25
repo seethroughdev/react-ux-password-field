@@ -35,6 +35,8 @@ simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
     - CSS-Loader
     - LESS-Loader
     - Script-Loader
+- webpack-plugins
+    - UglifyJsPlugin
 
 
 
