@@ -1,7 +1,10 @@
 react-webpack
 =============
 
-Template: React + webpack
+react + webpack template.
+
+a good start: [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
+
 
 ### Setup
 ``` npm install webpack -g ```
