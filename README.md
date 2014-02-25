@@ -8,7 +8,7 @@ a good start: [react-tutorial](http://facebook.github.io/react/docs/tutorial.htm
 ``` npm install react-webpack ```
 
 
-### System Setup
+### System Requirements
 
 ``` npm install webpack -g ```
 
