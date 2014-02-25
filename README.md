@@ -5,7 +5,9 @@ Template: React + webpack
 
 ## Setup
 ``` npm install webpack -g ```
+
 ``` npm install bower -g ```
+
 ``` npm install webpack-dev-server -g ```
 
 ## Run The DevServer
