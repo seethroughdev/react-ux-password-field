@@ -7,7 +7,8 @@ To learn react, start with the [react-tutorial](http://facebook.github.io/react/
 
 
 ### Install
-``` npm install react-webpack ```
+Download this repository to your local project folder and run
+``` npm install ``` 
 
 
 ### System Requirements
@@ -35,6 +36,8 @@ simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
     - CSS-Loader
     - LESS-Loader
     - Script-Loader
+- webpack-plugins
+    - UglifyJsPlugin
 
 
 
