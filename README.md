@@ -8,7 +8,7 @@ To learn react, start with the [react-tutorial](http://facebook.github.io/react/
 
 ### Install
 Download this repository to your local project folder and run
-``` npm install ``` 
+``` npm install ``` from the folder where the package.json is located.
 
 
 ### System Requirements
