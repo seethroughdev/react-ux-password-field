@@ -13,7 +13,7 @@ a good start: [react-tutorial](http://facebook.github.io/react/docs/tutorial.htm
 
 ``` npm install webpack-dev-server -g ```
 
-### Run The DevServer
+### Dev-Server
 ``` npm run devserver ``` -> will start a server at [http://localhost:9500/webpack-dev-server/](http://localhost:9500/webpack-dev-server/)
 
 
