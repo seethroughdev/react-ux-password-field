@@ -5,8 +5,11 @@ react + webpack template.
 
 a good start: [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
 
+``` npm install react-webpack ```
 
-### Setup
+
+### System Setup
+
 ``` npm install webpack -g ```
 
 ``` npm install bower -g ```
