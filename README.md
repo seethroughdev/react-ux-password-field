@@ -1,7 +1,9 @@
 react-webpack
 =============
 
-[react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack) template to get you started. [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
+[react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack) template to get you started. 
+
+To learn react, start with the [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
 
 
 ### Install
