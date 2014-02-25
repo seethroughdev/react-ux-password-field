@@ -8,7 +8,7 @@ module.exports = {
         main: "./source/main"
     },
     output: {
-        path: "./lib",
+        path: "./build",
         filename: "[name].bundle.js"
     },
     resolve: {

@@ -1,6 +1,6 @@
 {
   "name": "react-webpack",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "React + Webpack Starter Template",
   "scripts": {
     "devserver": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
@@ -31,7 +31,7 @@
     "react": "~0.9.0"
   },
   "files": [
-    "devserver/",
+    "devserver_files/",
     "source/",
     "build/",
     "server.config",
