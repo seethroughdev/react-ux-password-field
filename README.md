@@ -19,6 +19,9 @@ react + webpack template to get you started. [react-tutorial](http://facebook.gi
 ### Dev-Server
 ``` npm run devserver ``` -> will start a server at [http://localhost:9500/webpack-dev-server/](http://localhost:9500/webpack-dev-server/)
 
+### Build
+simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
+
 
 ### Includes
 - configuration files
