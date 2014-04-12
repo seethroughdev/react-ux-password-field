@@ -1,6 +1,6 @@
 {
   "name": "my-react-webpack-project",
-  "version": "0.1.0",
+  "version": "0.8.0",
   "description": "my project description",
   "scripts": {
     "devserver": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
@@ -13,13 +13,15 @@
   "author": "",
   "homepage": "",
   "dependencies": {
-    "webpack": "~1.0.1",
-    "jsx-loader": "~0.9.0",
-    "style-loader": "~0.6.2",
-    "css-loader": "~0.6.8",
-    "script-loader": "~0.5.2",
-    "less-loader": "~0.7.1",
-    "envify": "~1.2.1",
-    "react": "~0.9.0"
+    "webpack": ">1.0.0",
+    "jsx-loader": ">=0.9.0",
+    "style-loader": ">=0.6.3",
+    "css-loader": ">=0.6.12",
+    "script-loader": ">=0.5.2",
+    "less-loader": ">=0.7.2",
+    "envify": ">=1.2.1",
+    "react": ">=0.10.0",
+    "file-loader": ">=0.5.1",
+    "url-loader": ">=0.5.5"
   }
 }

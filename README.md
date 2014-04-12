@@ -26,19 +26,6 @@ run ``` npm run devserver ``` from your project folder -> this will start a serv
 simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
 
 
-### Includes
-- configuration files
-- webpack
-- react
-- webpack-loaders
-    - JSX-Loader
-    - Styles-Loader
-    - CSS-Loader
-    - LESS-Loader
-    - Script-Loader
-- webpack-plugins
-    - UglifyJsPlugin
-
 
 
 
