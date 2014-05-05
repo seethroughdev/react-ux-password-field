@@ -2,8 +2,9 @@ react-webpack
 =============
 
 a [react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack)  project template.
+comes with a sweetJS fat-arrow macro.
 
-This template is a great way to start with the [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
+This template is a great way to start the [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
 
 
 ### Install
@@ -20,7 +21,8 @@ Download this repository to your local project folder and run
 ``` npm install webpack-dev-server -g ```
 
 ### Dev-Server
-run ``` npm run devserver ``` from your project folder -> this will start a server at [http://localhost:9500/webpack-dev-server/](http://localhost:9500/webpack-dev-server/)
+run ``` npm run devserver ``` from your project folder -> this will start a server at [http://localhost:9500/](http://localhost:9500/)
+This will use the webpack-dev-server.js to refresh the page if a new build is ready.
 
 ### Build
 simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
