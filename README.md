@@ -2,7 +2,6 @@ react-webpack
 =============
 
 a [react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack)  project template.
-comes with a sweetJS fat-arrow macro.
 
 This template is a great way to start the [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
 
