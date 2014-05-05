@@ -22,10 +22,9 @@ Download this repository to your local project folder and run
 
 ### Dev-Server
 run ``` npm run devserver ``` from your project folder -> this will start a server at [http://localhost:9500/](http://localhost:9500/)
-This will use the webpack-dev-server.js to refresh the page if a new build is ready.
 
 ### Build
-simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder.
+simply run ``` webpack ``` or ``` webpack -watch ``` from your project folder to build a uglifyed bundle.
 
 
 
