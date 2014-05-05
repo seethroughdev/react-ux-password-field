@@ -1,8 +1,14 @@
 var config = {
-    entry: "./source/main.js",
-	cache: true,
-	debug: true,
-	devtool: "inline-source-map",
+	target: "web",
+    debug: true,
+    devtool: "source-map",
+    entry: {
+        main: "./source/main"
+    },
+    output: {
+        path: "./build",
+        filename: "[name].bundle.js"
+    },
     resolve: {
         modulesDirectories: ['bower_components', 'node_modules'],
     },
