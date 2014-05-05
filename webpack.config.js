@@ -21,8 +21,7 @@ module.exports = {
 			{ test: /\.js$/, loader: "jsx-loader" },
             { test: /\.png/, loader: "url-loader?limit=100000&mimetype=image/png" },
             { test: /\.gif/, loader: "url-loader?limit=100000&mimetype=image/gif" },
-            { test: /\.jpg/, loader: "file-loader" },
-            { test: /\.js$/, loader: 'sweetjs?modules[]=../macros.sjs' }
+            { test: /\.jpg/, loader: "file-loader" }
         ]
     },
     plugins: [

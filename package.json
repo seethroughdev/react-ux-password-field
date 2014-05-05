@@ -22,7 +22,6 @@
     "envify": ">=1.2.1",
     "react": ">=0.10.0",
     "file-loader": ">=0.5.1",
-    "url-loader": ">=0.5.5",
-    "sweetjs-loader": "0.0.0"
+    "url-loader": ">=0.5.5"
   }
 }
