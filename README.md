@@ -1,7 +1,7 @@
 react-webpack
 =============
 
-a [react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack)  project template.
+a [react](http://facebook.github.io/react/index.html) + [webpack](https://github.com/webpack/webpack)  project template. ES6 (Harmony) enabled through [Facebook-jstransform](https://github.com/facebook/jstransform)
 
 This template is a great way to start the [react-tutorial](http://facebook.github.io/react/docs/tutorial.html)
 
