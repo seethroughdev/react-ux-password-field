@@ -3,7 +3,8 @@
   "version": "0.9.0",
   "description": "my project description",
   "scripts": {
-    "devserver": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
+    "dev": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
+    "demo": "webpack-dev-server --config wp.demo.config.js --content-base ./devserver_files --port 9500 --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -22,5 +23,8 @@
     "react": ">=0.10.0",
     "file-loader": ">=0.5.1",
     "url-loader": ">=0.5.5"
+  },
+  "devDependencies": {
+    "sass-loader": "^0.4.0-beta.1"
   }
 }
