@@ -14,6 +14,7 @@ var InputPassword = React.createClass({
 
   propTypes: {
     debug: RP.bool,
+    inputId: RP.string,
     statusColor: RP.string,
     placeholder: RP.string,
     changeCb: RP.func,
@@ -38,7 +39,7 @@ var InputPassword = React.createClass({
     }
   },
 
-  getScoreStyle(score) {
+  getMeterStyle(score) {
     var width = 24 * score + 4;
     return {
       width: width + '%',
@@ -89,7 +90,7 @@ var InputPassword = React.createClass({
 
   render() {
 
-    var scoreStyle     = this.getScoreStyle(this.state.score),
+    var meterStyle     = this.getMeterStyle(this.state.score),
         containerStyle = {
           position: 'relative'
         },
@@ -107,18 +108,20 @@ var InputPassword = React.createClass({
     return (
       <div
         style={containerStyle}
-        id="passwordField"
+        className="passwordField"
         data-score={this.state.score}
         data-entropy={this.state.entropy}
         >
-        <div id="viewPassword"
+        <div className="passwordField__toggleVisibility"
             onMouseEnter={this.handleInputType}
             onMouseLeave={this.handleInputType}
             style={viewPasswordStyle}
-            >+</div>
+            >+
+        </div>
         <input
           style={{width: '100%'}}
-          ref='passwordInputValue'
+          id={this.props.id}
+          className="passwordField__input"
           placeholder={this.props.placeholder}
           type={this.state.isPassword ? 'password' : 'text'}
           Score={this.state.score}
@@ -133,7 +136,10 @@ var InputPassword = React.createClass({
           autocomplete={this.props.autocomplete}
           disabled={this.props.disabled}
         />
-        <div style={scoreStyle} id="passwordMeter"></div>
+        <div
+          style={meterStyle}
+          className="passwordField__meter">
+        </div>
       </div>
     );
   }
