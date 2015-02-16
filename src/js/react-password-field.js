@@ -8,6 +8,7 @@ var InputPassword = React.createClass({
   getDefaultProps() {
     return {
       statusColor: '#00ff00',
+      statusInactiveColor: '#ff0000',
       minScore: 0
     }
   },
@@ -33,7 +34,7 @@ var InputPassword = React.createClass({
     return {
       width: width + '%',
       opacity: width * .01 + .25,
-      background: score < this.props.minScore ? '#c7c7c7' : this.props.statusColor,
+      background: score < this.props.minScore ?  this.props.statusInactiveColor : this.props.statusColor,
       position: 'absolute',
       bottom: -10,
       height: 5,

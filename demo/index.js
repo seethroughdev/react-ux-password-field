@@ -11,7 +11,7 @@ React.render(
   <form>
     <fieldset>
       <label for="password1">Your Password</label>
-      <InputPassword name="password1" minScore={3} />
+      <InputPassword name="password1" minScore={2} />
     </fieldset>
   </form>
 , document.getElementById('content'));
