@@ -3,7 +3,15 @@
 var React         = require('react'),
     InputPassword = require('../src/js/react-password-field');
 
-// require('normalize.css/normalize.css')
+require('normalize.css/normalize.css')
 require('./style.scss');
 
-React.render(<InputPassword minScore={3} />, document.getElementById('content'));
+React.render(
+
+  <form>
+    <fieldset>
+      <label for="password1">Your Password</label>
+      <InputPassword name="password1" minScore={3} />
+    </fieldset>
+  </form>
+, document.getElementById('content'));
