@@ -14,20 +14,9 @@ var InputPassword = React.createClass({
 
   propTypes: {
     debug: RP.bool,
-    inputId: RP.string,
     statusColor: RP.string,
-    placeholder: RP.string,
-    changeCb: RP.func,
     minScore: RP.number,
-    name: RP.string,
-    form: RP.string,
-    maxLength: RP.string,
-    readonly: RP.string,
-    size: RP.string,
-    autofocus: RP.oneOf(['autofocus', '']),
-    autocomplete: RP.oneOf(['on', 'off']),
-    required: RP.oneOf(['required', '']),
-    disabled: RP.oneOf(['disabled', ''])
+    changeCb: RP.func,
   },
 
   getInitialState() {
@@ -120,21 +109,11 @@ var InputPassword = React.createClass({
         </div>
         <input
           style={{width: '100%'}}
-          id={this.props.id}
           className="passwordField__input"
-          placeholder={this.props.placeholder}
           type={this.state.isPassword ? 'password' : 'text'}
-          Score={this.state.score}
           value={this.state.value}
           onChange={this.handleChange}
-          name={this.props.name}
-          maxLength={this.props.maxLength}
-          readonly={this.props.readonly}
-          size={this.props.size}
-          autofocus={this.props.autofocus}
-          required={this.props.required}
-          autocomplete={this.props.autocomplete}
-          disabled={this.props.disabled}
+          {...this.props}
         />
         <div
           style={meterStyle}
