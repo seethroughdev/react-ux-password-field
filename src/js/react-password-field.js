@@ -1,7 +1,8 @@
 'use strict';
 
 var React = require('react'),
-    RP    = React.PropTypes;
+    RP    = React.PropTypes,
+    debounce = require('lodash.debounce');
 
 var InputPassword = React.createClass({
 
@@ -48,11 +49,18 @@ var InputPassword = React.createClass({
     });
   },
 
+  addPasswordType() {
+    this.setState({
+      isPassword: true
+    });
+  },
+
   handleChange(e) {
     e.preventDefault();
     var val          = e.target.value,
         stats        = zxcvbn(val),
-        currentScore = stats.score;
+        currentScore = stats.score,
+        hidePassword = debounce(this.addPasswordType, 2000);
 
     // if score changed and callback provided
     if (this.props.changeCb && this.state.score !== currentScore) {
@@ -62,8 +70,11 @@ var InputPassword = React.createClass({
     this.setState({
       value: val,
       score: currentScore,
-      entropy: stats.entropy
-    })
+      entropy: stats.entropy,
+      isPassword: false
+    });
+
+    hidePassword();
 
     if (this.props.debug) {
       console.log(stats);
