@@ -124,6 +124,7 @@ var InputPassword = React.createClass({
           className="passwordField__input"
           type={this.state.isPassword ? 'password' : 'text'}
           value={this.state.value}
+          style={this.state.isPassword ? null : inputStyle}
           onChange={this.handleChange}
           {...this.props}
         />
