@@ -1,9 +1,10 @@
+var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+
 var config = {
-	target: "web",
-  devtool: 'eval',
+  devtool: "source-map",
   // debug: true,
   entry: {
-    demo: './demo/index'
+    demo: './demo/src/index'
   },
   output: {
       path: "./demo",
@@ -22,7 +23,10 @@ var config = {
   },
   externals: {
     'react': 'React'
-  }
+  },
+  plugins: [
+    new UglifyJsPlugin()
+  ]
 };
 
 module.exports = config;

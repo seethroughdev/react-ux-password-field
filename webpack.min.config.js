@@ -1,4 +1,6 @@
-﻿module.exports = {
+﻿var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+
+module.exports = {
   target: "web",
     debug: true,
     devtool: "source-map",
@@ -7,7 +9,7 @@
     },
     output: {
         path: "./lib",
-        filename: "react-password-field.js"
+        filename: "react-password-field.min.js"
     },
     resolve: {
         modulesDirectories: ['bower_components', 'node_modules'],
@@ -22,6 +24,9 @@
     },
     externals: {
       'react': 'React'
-    }
+    },
+    plugins: [
+        new UglifyJsPlugin()
+    ]
 };
 

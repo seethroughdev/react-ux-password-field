@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
     "demo": "webpack-dev-server --config wp.demo.config.js --content-base ./devserver_files --port 9500 --colors",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack && webpack --config webpack.min.config.js"
   },
   "keywords": [
     "webpack",
@@ -14,20 +15,18 @@
   "author": "",
   "homepage": "",
   "dependencies": {
+    "react": ">=0.12.2"
+  },
+  "devDependencies": {
     "webpack": ">=1.5.3",
     "jsx-loader": ">=0.12.2",
     "style-loader": ">=0.8.3",
     "css-loader": ">=0.9.1",
     "script-loader": ">=0.6.1",
-    "less-loader": ">=2.0.0",
-    "react": ">=0.12.2",
     "file-loader": ">=0.8.1",
-    "url-loader": ">=0.5.5"
-  },
-  "devDependencies": {
-    "lodash.throttle": "^3.0.1",
+    "url-loader": ">=0.5.5",
+    "lodash.debounce": "^3.0.1",
     "normalize.css": "^3.0.2",
-    "react-hot-loader": "^1.1.5",
     "sass-loader": "^0.4.0-beta.1",
     "webpack-dev-server": "^1.7.0"
   }
