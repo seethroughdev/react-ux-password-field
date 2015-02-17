@@ -2,23 +2,36 @@
 
 var React = require('react'),
     RP    = React.PropTypes,
+    config = require('./config'),
     debounce = require('lodash.debounce');
+
 
 var InputPassword = React.createClass({
 
-  getDefaultProps() {
-    return {
-      statusColor: '#00ff00',
-      statusInactiveColor: '#ff0000',
-      minScore: 0
-    }
-  },
+
+  /*==========  VALIDATE  ==========*/
 
   propTypes: {
-    debug: RP.bool,
     statusColor: RP.string,
+    statusInactiveColor: RP.string,
     minScore: RP.number,
     changeCb: RP.func,
+    toggleMask: RP.bool,
+    match: RP.string
+  },
+
+
+  /*==========  DEFAULTS  ==========*/
+
+  getDefaultProps() {
+    return {
+      statusColor: config.statusColor,
+      statusInactiveColor: config.statusInactiveColor,
+      zxcvbn: config.zxcvbnSrc,
+      minScore: 0,
+      toggleMask: true,
+      match: null
+    }
   },
 
   getInitialState() {
@@ -30,24 +43,44 @@ var InputPassword = React.createClass({
     }
   },
 
+
+  /*==========  STYLES  ==========*/
+
   getMeterStyle(score) {
     var width = 24 * score + 4;
     return {
-      width: width + '%',
-      opacity: width * .01 + .25,
-      background: score < this.props.minScore ?  this.props.statusInactiveColor : this.props.statusColor,
-      position: 'absolute',
-      bottom: -10,
+      width: this.props.zxcvbn ? width + '%' : '100%',
+      maxWidth: '96%',
+      opacity: this.props.zxcvbn ? width * .01 + .25 : '1',
+      background: this.state.isValid ?  this.props.statusColor : this.props.statusInactiveColor,
       height: 5,
-      transition: 'all 400ms linear'
+      transition: 'all 400ms linear',
+      display: 'inline-block'
     }
   },
 
-  handleInputType() {
-    this.setState({
-      isPassword: !this.state.isPassword
-    });
+  unMaskStyle: {
+    color: config.unMaskColor,
+    fontStyle: 'italic',
+    fontWeight: 200
   },
+
+  infoStyle: {
+    position: 'absolute',
+    bottom: -15,
+    width: '100%'
+  },
+
+  iconStyle: {
+    display: 'inline-block',
+    opacity: .25,
+    position: 'relative',
+    top: 2,
+    width: '4%'
+  },
+
+
+  /*==========  METHODS  ==========*/
 
   addPasswordType() {
     this.setState({
@@ -55,82 +88,127 @@ var InputPassword = React.createClass({
     });
   },
 
+  /*==========  HANDLERS  ==========*/
+
+  handleInputType() {
+    this.setState({
+      isPassword: !this.state.isPassword
+    });
+  },
+
   handleChange(e) {
     e.preventDefault();
-    var val          = e.target.value,
-        stats        = zxcvbn(val),
-        currentScore = stats.score,
-        hidePassword = debounce(this.addPasswordType, 2000);
+    var val = e.target.value;
+
+    this.setState({
+      value: val,
+      isValid: e.target.validity.valid
+    });
+
+
+    if (this.props.toggleMask) {
+      this.handleToggleMask();
+    }
+
+    if (this.props.zxcvbn && !this.props.match) {
+      this.handleZxcvbn(val);
+    }
+
+    if (this.props.match) {
+      var el = document.getElementById(this.props.match);
+      if (el && typeof el !== 'undefined') {
+        this.handleMatch(val, el.value);
+      } else {
+        throw new Error('The elementId you want to match does not exist!');
+      }
+    }
+
+  },
+
+  handleToggleMask() {
+
+    // display password, then
+    this.setState({
+      isPassword: false
+    });
+
+    // debounce remasking password
+    this.maskPassword();
+  },
+
+  handleZxcvbn(val) {
+    var stats        = zxcvbn(val),
+        currentScore = stats.score;
+
+    this.setState({
+      score: currentScore,
+      entropy: stats.entropy
+    });
+
+    if (currentScore < this.props.minScore) {
+      this.setState({
+        isValid: false
+      });
+    }
 
     // if score changed and callback provided
     if (this.props.changeCb && this.state.score !== currentScore) {
       this.props.changeCb(this.state.score, currentScore)
     }
 
-    this.setState({
-      value: val,
-      score: currentScore,
-      entropy: stats.entropy,
-      isPassword: false
-    });
+    if (this.props.zxcvbn === 'debug') {
+      console.debug(stats);
+    }
+  },
 
-    hidePassword();
-
-    if (this.props.debug) {
-      console.log(stats);
+  handleMatch(currentValue, matchedValue) {
+    if (currentValue === matchedValue) {
+      console.log('it matches');
     }
   },
 
   componentWillMount() {
+    var zxcvbnSrc;
 
-    // Load zxcvbn async if doesn't already exist
+    // Load zxcvbn async if its enabled and doesn't already exist
+    if (this.props.zxcvbn && typeof zxcvbn === 'undefined') {
 
-    if (typeof zxcvbn !== 'undefined') return;
-    (function(){var a;a=function(){var a,b;b=document.createElement("script");b.src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/1.0/zxcvbn.min.js";b.type="text/javascript";b.async=!0;a=document.getElementsByTagName("head")[0];return a.parentNode.insertBefore(b,a)};null!=window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)}).call(this);
+      zxcvbnSrc = this.props.zxcvbn !== 'debug' ? this.props.zxcvbn : config.zxcvbnSrc;
+
+    // snippet to async load zxcvbn if enabled
+    (function(){var a;a=function(){var a,b;b=document.createElement("script");b.src=zxcvbnSrc;b.type="text/javascript";b.async=!0;a=document.getElementsByTagName("head")[0];return a.parentNode.insertBefore(b,a)};null!=window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)}).call(this);
+    }
+
+    // set debouncer for password
+    if (this.props.toggleMask) {
+      this.maskPassword = debounce(this.addPasswordType, config.unMaskTime);
+    }
   },
 
   render() {
 
-    var meterStyle     = this.getMeterStyle(this.state.score),
-        containerStyle = {
-          position: 'relative'
-        },
-        viewPasswordStyle = {
-          position: 'absolute',
-          color: '#c7c7c7',
-          fontSize: 22,
-          top: 5,
-          right: 5
-        };
-
-    // the props list are long because we are including default html5 attributes
-    // that could be passed down through parent
-
     return (
       <div
-        style={containerStyle}
+        style={{position: 'relative', display: 'inline-block'}}
         className="passwordField"
+        data-valid={this.state.isValid}
         data-score={this.state.score}
         data-entropy={this.state.entropy}
         >
-        <div className="passwordField__toggleVisibility"
-            onMouseEnter={this.handleInputType}
-            onMouseLeave={this.handleInputType}
-            style={viewPasswordStyle}
-            >+
-        </div>
         <input
-          style={{width: '100%'}}
+          ref="passwordInput"
           className="passwordField__input"
           type={this.state.isPassword ? 'password' : 'text'}
           value={this.state.value}
-          style={this.state.isPassword ? null : inputStyle}
+          style={this.state.isPassword ? null : this.unMaskStyle}
           onChange={this.handleChange}
           {...this.props}
         />
-        <div
-          style={meterStyle}
-          className="passwordField__meter">
+        <div className="passwordField__info" style={this.infoStyle}>
+          <span style={this.iconStyle} className="passwordField__icon">
+          <img src={require('../img/lock.png')} height="10" width="10"  />
+          </span>
+          <span style={this.getMeterStyle(this.state.score)} className="passwordField__meter" />
         </div>
       </div>
     );

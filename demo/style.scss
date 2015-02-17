@@ -4,11 +4,14 @@
 
 html, body {
   background: #f7f7f7;
+  font-family: 'Lato', sans-serif;
 }
 
 form {
   width: 500px;
   margin: 25% auto;
+  // background: #e3e3e3;
+  padding: 2em 1em;
 }
 
 fieldset {
@@ -24,13 +27,13 @@ label {
 }
 
 .passwordField {
-  position: relative;
+  width: 100%;
 }
 
 input {
   line-height: 2.5;
-  padding: 0 30px;
-  font-size: 2em;
+  padding: 0 20px;
+  font-size: 1.5em;
   border: 1px solid #c7c7c7;
   outline: none;
   width: 100%;
