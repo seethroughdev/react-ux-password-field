@@ -1,4 +1,4 @@
-var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
+// var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
 
 var config = {
   devtool: "source-map",
@@ -25,7 +25,7 @@ var config = {
     'react': 'React'
   },
   plugins: [
-    new UglifyJsPlugin()
+    // new UglifyJsPlugin()
   ]
 };
 

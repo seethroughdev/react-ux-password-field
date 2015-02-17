@@ -1,7 +1,7 @@
 ﻿var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
 
 module.exports = {
-  target: "web",
+    target: 'web',
     debug: true,
     devtool: "source-map",
     entry: {

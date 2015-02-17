@@ -1,5 +1,5 @@
-﻿module.exports = {
-  target: "web",
+module.exports = {
+    target: 'web',
     debug: true,
     devtool: "source-map",
     entry: {
