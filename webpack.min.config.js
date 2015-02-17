@@ -1,6 +1,4 @@
-﻿var UglifyJsPlugin = require("webpack/lib/optimize/UglifyJsPlugin");
-
-module.exports = {
+﻿module.exports = {
     target: 'web',
     debug: true,
     devtool: "source-map",
@@ -26,7 +24,6 @@ module.exports = {
       'react': 'React'
     },
     plugins: [
-        new UglifyJsPlugin()
     ]
 };
 
