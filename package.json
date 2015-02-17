@@ -6,7 +6,7 @@
     "dev": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
     "demo": "webpack-dev-server --config wp.demo.config.js --content-base ./devserver_files --port 9500 --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && webpack --config webpack.min.config.js"
+    "build": "webpack && webpack --config webpack.min.config.js && webpack --config wp.demo.config.js"
   },
   "keywords": [
     "react",
