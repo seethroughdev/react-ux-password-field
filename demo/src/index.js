@@ -15,7 +15,7 @@ require('./css/style.scss');
 /*==========  APP  ==========*/
 
 var React         = require('react'),
-    InputPassword = require('../../src/js/react-password-field');
+    InputPassword = require('../../src/js/react-ux-password-field');
 
 React.render(
   <form>

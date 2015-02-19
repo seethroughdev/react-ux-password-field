@@ -7,7 +7,7 @@ module.exports = {
     },
     output: {
         path: "./lib",
-        filename: "react-password-field.js"
+        filename: "react-ux-password-field.js"
     },
     resolve: {
         modulesDirectories: ['bower_components', 'node_modules'],

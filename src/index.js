@@ -1,1 +1,1 @@
-require('./js/react-password-field');
+require('./js/react-ux-password-field');

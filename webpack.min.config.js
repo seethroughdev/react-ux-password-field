@@ -7,7 +7,7 @@
     },
     output: {
         path: "./lib",
-        filename: "react-password-field.min.js"
+        filename: "react-ux-password-field.min.js"
     },
     resolve: {
         modulesDirectories: ['bower_components', 'node_modules'],
@@ -22,8 +22,6 @@
     },
     externals: {
       'react': 'React'
-    },
-    plugins: [
-    ]
+    }
 };
 
