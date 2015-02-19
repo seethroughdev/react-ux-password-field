@@ -1,3 +1,5 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 var config = {
   devtool: "eval",
   debug: true,
@@ -13,8 +15,8 @@ var config = {
   },
   module: {
       loaders: [
-        { test: /\.css/, loader: "style!css" },
-        { test: /\.scss$/, loader: 'style!css!sass?outputStyle=expanded' },
+        { test: /\.css/, loader: ExtractTextPlugin.extract("style", "css") },
+        { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?outputStyle=expanded') },
         { test: /\.js$/, loader: 'jsx?harmony', exclude: /node_modules/ },
         { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
       ]
@@ -23,6 +25,9 @@ var config = {
     'react': 'React'
   },
   plugins: [
+    new ExtractTextPlugin("style.css", {
+      allChunks: true
+    })
   ]
 };
 

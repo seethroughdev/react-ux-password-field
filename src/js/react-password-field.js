@@ -18,6 +18,7 @@ var InputPassword = React.createClass({
     minScore: RP.number,
     changeCb: RP.func,
     toggleMask: RP.bool,
+    unMaskTime: RP.number,
     minLength: RP.number
   },
 
@@ -31,7 +32,8 @@ var InputPassword = React.createClass({
       statusInactiveColor: config.statusInactiveColor,
       zxcvbn: config.zxcvbnSrc,
       minScore: 0,
-      toggleMask: true
+      toggleMask: true,
+      unMaskTime: config.unMaskTime
     }
   },
 
@@ -179,7 +181,7 @@ var InputPassword = React.createClass({
 
     // set debouncer for password
     if (this.props.toggleMask) {
-      this.maskPassword = debounce(this.addPasswordType, config.unMaskTime);
+      this.maskPassword = debounce(this.addPasswordType, this.props.unMaskTime);
     }
   },
 

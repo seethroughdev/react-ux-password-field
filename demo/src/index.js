@@ -26,7 +26,7 @@ React.render(
         name="password1"
         placeholder="Try me out!  Enter a random password."
         minScore={2}
-        minLength={40}
+        minLength={5}
       />
     </fieldset>
   </form>

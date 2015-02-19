@@ -22,19 +22,21 @@
   "author": "seethroughtrees",
   "homepage": "",
   "dependencies": {
+    "extract-text-webpack-plugin": "^0.3.8",
     "react": ">=0.12.2"
   },
   "devDependencies": {
-    "webpack": ">=1.5.3",
-    "jsx-loader": ">=0.12.2",
-    "style-loader": ">=0.8.3",
     "css-loader": ">=0.9.1",
-    "script-loader": ">=0.6.1",
+    "extract-text-webpack-plugin": "^0.3.8",
     "file-loader": ">=0.8.1",
-    "url-loader": ">=0.5.5",
+    "jsx-loader": ">=0.12.2",
     "lodash.debounce": "^3.0.1",
     "normalize.css": "^3.0.2",
     "sass-loader": "^0.4.0-beta.1",
+    "script-loader": ">=0.6.1",
+    "style-loader": ">=0.8.3",
+    "url-loader": ">=0.5.5",
+    "webpack": ">=1.5.3",
     "webpack-dev-server": "^1.7.0"
   }
 }
