@@ -1,5 +1,5 @@
 var config = {
-  devtool: "source-map",
+  devtool: "eval",
   debug: true,
   entry: {
     demo: './demo/src/index'

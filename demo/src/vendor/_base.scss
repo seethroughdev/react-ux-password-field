@@ -3,13 +3,13 @@ body {
   line-height: 31px;
   max-width: 760px;
   margin: 0 auto;
-  font-family: 'Droid Sans', sans-serif;
 }
 h1 {
-  font-size: 61px;
+  font-size: 48px;
   line-height: 62px;
   margin-top: 62px;
   margin-bottom: 31px;
+  font-weight: 400;
 }
 h2 {
   font-size: 41px;
@@ -53,4 +53,8 @@ sup, sub {
 }
 sub {
   top: 0.4em;
+}
+
+li {
+  margin-bottom: 20px;
 }

@@ -1,9 +1,18 @@
 'use strict';
 
+// default css
 require('normalize.css/normalize.css')
-require('./style.scss');
+require('./vendor/skeleton.css');
+require('./vendor/github.css');
 
+// syntax highlighting
+require('./vendor/syntax.css');
+require('./vendor/rainbow-custom.min.js');
 
+// custom css
+require('./css/style.scss');
+
+/*==========  APP  ==========*/
 
 var React         = require('react'),
     InputPassword = require('../../src/js/react-password-field');
@@ -15,11 +24,9 @@ React.render(
       <InputPassword
         id="password1"
         name="password1"
-        minScore={0}
-        toggleMask={false}
-        zxcvbn={false}
-        pattern="[A-Za-z]+"
-        required
+        placeholder="Try me out!  Enter a random password."
+        minScore={2}
+        minLength={40}
       />
     </fieldset>
   </form>
