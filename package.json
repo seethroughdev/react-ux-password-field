@@ -9,6 +9,13 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p --config wp.demo.config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seethroughtrees/react-ux-password-field.git"
+  },
+  "bugs": {
+    "url": "https://github.com/seethroughtrees/react-ux-password-field/issues"
+  },
   "keywords": [
     "react",
     "form",
@@ -21,9 +28,8 @@
     "password-security"
   ],
   "author": "seethroughtrees",
-  "homepage": "",
+  "homepage": "https://seethroughtrees.github.io/react-ux-password-field/",
   "dependencies": {
-    "extract-text-webpack-plugin": "^0.3.8",
     "react": ">=0.12.2"
   },
   "devDependencies": {
