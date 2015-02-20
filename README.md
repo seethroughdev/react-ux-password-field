@@ -11,13 +11,13 @@ This react component aims to improve common issues in password field UX.
 
 * * *
 
-### Install
+## Install
 
 ```npm install react-ux-password-field```
 
 * * *
 
-### Use
+## Use
 
 ``` javascript
 // use it like any other react component.
@@ -34,12 +34,12 @@ render: function() {
 }
 ```
 
-### Options (props)
+## Options (props)
 
 Add your attributes normally like you would any input field. (id, placeholder, required, pattern etc...) But now you get the following extras:
 
 
-#### Info Bar
+##### Info Bar
 
 infoBar *(bool)* **default: true**
 
@@ -53,7 +53,7 @@ You can still rely on the attributes in the container class to do any other logi
 
 * * *
 
-#### Password Strength
+##### Password Strength
 
 zxcvbn *(bool|string)* **default: true**
 
