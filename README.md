@@ -34,8 +34,6 @@ render: function() {
 }
 ```
 
-* * *
-
 ### Options (props)
 
 Add your attributes normally like you would any input field. (id, placeholder, required, pattern etc...) But now you get the following extras:
@@ -53,6 +51,8 @@ You can still rely on the attributes in the container class to do any other logi
 -   **data-score** - current password strength score.
 -   **data-entropy** - current password entropy.
 
+* * *
+
 #### Password Strength
 
 zxcvbn *(bool|string)* **default: true**
@@ -62,6 +62,8 @@ zxcvbn *(bool|string)* **default: true**
 You can also pass "debug" as your string and it will console.log the zxcvbn object returned on each password change.
 
 *Note: zxcvbn is loaded async as it is a pretty big file.  The async load time usually isn't an issue for a password usecase, if it is.  Consider disabling and moving to a server-side load.*
+
+* * *
 
 
 
