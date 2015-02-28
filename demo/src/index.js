@@ -15,12 +15,14 @@ require('./css/style.scss');
 /*==========  APP  ==========*/
 
 var React         = require('react'),
-    InputPassword = require('../../src/js/react-ux-password-field');
+    InputPassword = require('../../lib/react-ux-password-field.js');
+
+    console.log(InputPassword);
 
 React.render(
   <form>
     <fieldset>
-      <label for="password1">Password</label>
+      <label htmlFor="password1">Password</label>
       <InputPassword
         id="password1"
         name="password1"
