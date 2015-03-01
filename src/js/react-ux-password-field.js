@@ -53,12 +53,13 @@ var InputPassword = React.createClass({
     var width = 24 * score + 4;
     return {
       width: this.props.zxcvbn ? width + '%' : '100%',
-      maxWidth: '96%',
+      maxWidth: '85%',
       opacity: this.props.zxcvbn ? width * .01 + .5 : '1',
       background: this.state.isValid ?  this.props.statusColor : this.props.statusInactiveColor,
       height: 5,
       transition: 'all 400ms linear',
-      display: 'inline-block'
+      display: 'inline-block',
+      marginRight: '1%'
     }
   },
 
@@ -71,7 +72,8 @@ var InputPassword = React.createClass({
   infoStyle: {
     position: 'absolute',
     bottom: -10,
-    width: '100%'
+    width: '100%',
+    overflow: 'hidden'
   },
 
   iconStyle: {
@@ -80,6 +82,13 @@ var InputPassword = React.createClass({
     position: 'relative',
     top: 2,
     width: '4%'
+  },
+
+  entropyStyle: {
+    fontSize: 12,
+    position: 'relative',
+    top: 2,
+    width: '2%'
   },
 
 
@@ -194,6 +203,7 @@ var InputPassword = React.createClass({
         <img src={require('../img/lock.png')} height="10" width="10"  />
         </span>
         <span style={this.getMeterStyle(this.state.score)} className="passwordField__meter" />
+        <span style={this.entropyStyle} className="passwordField__score">{Math.floor(this.state.entropy) * 2}</span>
       </div>
     }
 
