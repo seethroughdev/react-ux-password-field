@@ -53,7 +53,6 @@
   },
   "gh-pages-deploy": {
     "staticpath": "demo",
-    // "cname": "nope.org",
     "prep": [
       "build"
     ],
