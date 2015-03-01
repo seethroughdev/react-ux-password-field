@@ -3,7 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   // the entry point of your library
-  entry: ['webpack/hot/dev-server', './demo/src/index.js'],
+  entry: ['./demo/src/index.js'],
   // where 3rd-party modules can reside
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components']
