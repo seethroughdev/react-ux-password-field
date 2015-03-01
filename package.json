@@ -4,10 +4,10 @@
   "main": "lib/react-ux-password-field.js",
   "description": "A UX forward password field for react-js",
   "scripts": {
-    "dev": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
-    "demo": "webpack-dev-server --config wp.demo.config.js --content-base ./devserver_files --port 9500 --colors",
+    "dev": "webpack --watch --port 9501 --colors",
+    "demo": "webpack-dev-server --config webpack.demo.config.js --content-base ./demo --port 9500 --colors --hot",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p --config wp.demo.config.js",
+    "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p --config webpack.demo.config.js",
     "deploy": "gh-pages-deploy"
   },
   "repository": {

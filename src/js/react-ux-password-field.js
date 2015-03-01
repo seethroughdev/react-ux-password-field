@@ -5,7 +5,6 @@ var React = require('react'),
     config = require('./config'),
     debounce = require('lodash.debounce');
 
-
 var InputPassword = React.createClass({
 
 
