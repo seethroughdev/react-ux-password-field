@@ -34,6 +34,7 @@
     "react": ">=0.12.2"
   },
   "devDependencies": {
+    "autoprefixer-loader": "^1.1.0",
     "babel": "^4.6.3",
     "babel-core": "^4.6.3",
     "babel-loader": "^4.0.0",

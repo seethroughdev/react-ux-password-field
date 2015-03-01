@@ -19,8 +19,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css/, loader: ExtractTextPlugin.extract("style", "css") },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?outputStyle=expanded') },
+      { test: /\.css/, loader: ExtractTextPlugin.extract("style", "css!autoprefixer-loader?browsers=last 2 version") },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!autoprefixer-loader?browsers=last 2 version!sass?outputStyle=expanded') },
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
