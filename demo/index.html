@@ -26,10 +26,10 @@
     <p>This react component aims to improve common issues in password field UX.</p>
     <ol>
       <li>
-        <strong>Password Strength Detection</strong> - Using Dropbox's <a href="https://blogs.dropbox.com/tech/2012/04/zxcvbn-realistic-password-strength-estimation/">zxcvbn</a> library in real-time, onChange.
+        <strong>Password Strength Detection</strong> - Show the password complexity using Dropbox's <a href="https://blogs.dropbox.com/tech/2012/04/zxcvbn-realistic-password-strength-estimation/">zxcvbn</a> library, loaded async and updated onChange.
       </li>
       </li>
-      <li><strong>Timed Password Masking</strong> - Best explained in the <a href="http://www.nngroup.com/articles/stop-password-masking/">nngroup</a> article: <a href="http://www.nngroup.com/articles/stop-password-masking/">Stop Password Masking</a>
+      <li><strong>Timed Password Masking</strong> - Users make errors when they can't see the password field.  React UX Password temporarily shows the password, then hides after a configurable 1200ms.  Best explained in the <a href="http://www.nngroup.com/articles/stop-password-masking/">nngroup</a> article: <a href="http://www.nngroup.com/articles/stop-password-masking/">Stop Password Masking</a>
       </li>
       <li><strong>Stateful Class</strong> - Know the HTML5 validity of your field by class.</li>
     </ol>
@@ -59,9 +59,11 @@ render: function() {
 }
       </code>
     </pre>
+    <p><em>* React UX Password Field is UMD compatible, meaning it will load with
+    <a href="http://wiki.commonjs.org/wiki/CommonJS">commonJS</a>, <a href="http://requirejs.org/">AMD/RequireJS</a>, or standalone.</em></p>
     <hr>
     <h3>Options (props)</h3>
-    <p>Add your attributes normally like you would any input field. (id, placeholder, required, pattern etc...) But now you get the following extras:</p>
+    <p>Add your attributes normally like you would any password field. (id, placeholder, required, pattern etc...) But now you get the following extras:</p>
     <hr>
 
     <h4>Info Bar</h4>

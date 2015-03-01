@@ -32,6 +32,9 @@ render: function() {
 }
 ```
 
+_* React UX Password Field is UMD compatible, meaning it will load with
+[commonJS](http://wiki.commonjs.org/wiki/CommonJS), [AMD/RequireJS](http://requirejs.org/), or standalone._
+
 ## Options (props)
 
 React UX Password Field will work fine with its defaults, but there is a lot
