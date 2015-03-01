@@ -17,8 +17,6 @@ require('./css/style.scss');
 var React         = require('react'),
     InputPassword = require('../../lib/react-ux-password-field.js');
 
-    console.log(InputPassword);
-
 React.render(
   <form>
     <fieldset>

@@ -1,27 +1,37 @@
 var path = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: './src/index',
+  // the entry point of your library
+  entry: './src/js/react-ux-password-field.js',
+  // where 3rd-party modules can reside
+  resolve: {
+    modulesDirectories: ['node_modules', 'bower_components']
+  },
   output: {
+    // where to put standalone build file
     path: path.join(__dirname, 'lib'),
+    // the name of the standalone build file
     filename: 'react-ux-password-field.js',
-    sourceMapFilename: '[file].map',
-    library: 'Roni',
-    libraryTarget: 'umd'
+    // the standalone build should be wrapped in UMD for interop
+    libraryTarget: 'umd',
+    // the name of your library in global scope
+    library: 'react-ux-password-field'
   },
-  externals: {
-    'React': 'react'
-  },
+  externals: [
+    {
+      'react': {
+        root: 'React',
+        commonjs2: 'react',
+        commonjs: 'react',
+        amd: 'react'
+      }
+    }
+  ],
   module: {
     loaders: [
-        { test: /\.css/, loader: ExtractTextPlugin.extract("style", "css") },
-        { test: /\.scss$/, loader: ExtractTextPlugin.extract('style', 'css!sass?outputStyle=expanded') },
-        { test: /\.js$/, loader: 'jsx?harmony', exclude: /node_modules/ },
-        { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
-      ]
-  },
-  plugins: [
-    new ExtractTextPlugin('styles.css')
-  ]
+      { test: /\.js$/, loader: 'babel-loader'},
+      { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
+    ]
+  }
 };
+
