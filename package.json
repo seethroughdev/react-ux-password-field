@@ -7,7 +7,8 @@
     "dev": "webpack-dev-server --config server.config.js --content-base ./devserver_files --port 9500 --colors",
     "demo": "webpack-dev-server --config wp.demo.config.js --content-base ./devserver_files --port 9500 --colors",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p --config wp.demo.config.js"
+    "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p --config wp.demo.config.js",
+    "deploy": "gh-pages-deploy"
   },
   "repository": {
     "type": "git",
@@ -39,6 +40,7 @@
     "css-loader": ">=0.9.1",
     "extract-text-webpack-plugin": "^0.3.8",
     "file-loader": ">=0.8.1",
+    "gh-pages-deploy": "^0.3.0",
     "jsx-loader": ">=0.12.2",
     "lodash.debounce": "^3.0.1",
     "normalize.css": "^3.0.2",
@@ -48,5 +50,13 @@
     "url-loader": ">=0.5.5",
     "webpack": "^1.5.3",
     "webpack-dev-server": "^1.7.0"
+  },
+  "gh-pages-deploy": {
+    "staticpath": "demo",
+    // "cname": "nope.org",
+    "prep": [
+      "build"
+    ],
+    "noprompt": false
   }
 }
