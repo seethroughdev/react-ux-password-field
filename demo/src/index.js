@@ -12,8 +12,6 @@ require('./vendor/rainbow-custom.min.js');
 // custom css
 require('./css/style.scss');
 
-console.log('aaa')
-
 /*==========  APP  ==========*/
 
 var React         = require('react'),

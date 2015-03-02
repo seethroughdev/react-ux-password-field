@@ -1,9 +1,8 @@
 var path = require('path');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   // the entry point of your library
-  entry: './demo/src/index.js',
+  entry: ['webpack/hot/dev-server', './demo/src/index.js'],
   // where 3rd-party modules can reside
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components']
@@ -19,17 +18,11 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader") },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass?outputStyle=expanded') },
+      { test: /\.css/, loader: "style-loader!css-loader!autoprefixer-loader" },
+      { test: /\.scss$/, loader: 'style-loader!css-loader!autoprefixer-loader!sass?outputStyle=expanded' },
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
-  },
-  plugins: [
-    new ExtractTextPlugin("style.css", {
-      allChunks: true
-    }),
-
-  ]
+  }
 };
 
