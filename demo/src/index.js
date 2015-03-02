@@ -12,6 +12,8 @@ require('./vendor/rainbow-custom.min.js');
 // custom css
 require('./css/style.scss');
 
+console.log('aaa')
+
 /*==========  APP  ==========*/
 
 var React         = require('react'),
@@ -20,7 +22,7 @@ var React         = require('react'),
 React.render(
   <form>
     <fieldset>
-      <label htmlFor="password1">Password</label>
+      <label htmlFor="password1">Passwordssss</label>
       <InputPassword
         id="password1"
         name="password1"
