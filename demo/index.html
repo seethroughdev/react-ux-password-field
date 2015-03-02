@@ -117,6 +117,12 @@ render: function() {
     </p>
 
     <hr>
+    <h5>strengthLang <span>(array)</span><span class="default">['Weak', 'Okay', 'Good', 'Strong', 'Great']</span></h5>
+    <p>
+      <pre><code data-language="html">strengthLang={['Bad', 'Not good', 'Decent', 'Strong', 'Great']}</code></pre> will modify the text shown next to the bar.  You can pass an empty array to remove the text.
+    </p>
+
+    <hr>
     <h5>changeCb <span>(function(oldValue, newValue))</span></h5>
     <p>
       <pre><code data-language="html">changeCb={funcName}</code></pre> will call your callback on zxcvbn level change. It will pass in the old and new value. You can use this to hook other state related to the quality of the password if needed.

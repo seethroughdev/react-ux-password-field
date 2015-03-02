@@ -18,7 +18,8 @@ var InputPassword = React.createClass({
     changeCb: RP.func,
     toggleMask: RP.bool,
     unMaskTime: RP.number,
-    minLength: RP.number
+    minLength: RP.number,
+    strengthLang:RP.array
   },
 
 
@@ -32,7 +33,8 @@ var InputPassword = React.createClass({
       zxcvbn: config.zxcvbnSrc,
       minScore: 0,
       toggleMask: true,
-      unMaskTime: config.unMaskTime
+      unMaskTime: config.unMaskTime,
+      strengthLang: config.strengthLang
     }
   },
 
@@ -83,7 +85,7 @@ var InputPassword = React.createClass({
     width: '4%'
   },
 
-  entropyStyle: {
+  strengthLangStyle: {
     fontSize: 12,
     position: 'relative',
     top: 2,
@@ -202,7 +204,9 @@ var InputPassword = React.createClass({
         <img src={require('./img/lock.png')} height="10" width="10"  />
         </span>
         <span style={this.getMeterStyle(this.state.score)} className="passwordField__meter" />
-        <span style={this.entropyStyle} className="passwordField__score">{Math.floor(this.state.entropy) * 2}</span>
+        <span style={this.strengthLangStyle} className="passwordField__strength">
+          {this.props.strengthLang.length > 0 ? this.props.strengthLang[this.state.score] : null}
+        </span>
       </div>
     }
 
