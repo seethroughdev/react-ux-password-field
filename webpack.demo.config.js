@@ -1,4 +1,6 @@
-var path = require('path');
+var path              = require('path');
+var autoprefixer      = require('autoprefixer-core');
+var csswring          = require('csswring');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -19,12 +21,13 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!autoprefixer-loader") },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!autoprefixer-loader!sass?outputStyle=expanded') },
+      { test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!!postcss-loader") },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!!postcss-loader!sass?outputStyle=expanded') },
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
   },
+  postcss: [autoprefixer({ browsers: ['> 1%'] }), csswring],
   plugins: [
     new ExtractTextPlugin("style.css", {
       allChunks: true
