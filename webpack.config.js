@@ -1,8 +1,10 @@
-var path = require('path');
+var path    = require('path');
+var webpack = require('webpack');
+var banner  = require('./src/js/banner');
 
 module.exports = {
   // the entry point of your library
-  entry: './src/js/react-ux-password-field.js',
+  entry: './src/index.js',
   // where 3rd-party modules can reside
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components']
@@ -32,6 +34,9 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin(banner)
+  ]
 };
 

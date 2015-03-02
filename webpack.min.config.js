@@ -1,7 +1,9 @@
-﻿var path = require('path');
+﻿var path    = require('path');
+var webpack = require('webpack');
+var banner  = require('./src/js/banner');
 
 module.exports = {
-  entry: './src/js/react-ux-password-field.js',
+  entry: './src/index.js',
   resolve: {
     modulesDirectories: ['node_modules', 'bower_components']
   },
@@ -26,6 +28,9 @@ module.exports = {
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
-  }
+  },
+  plugins: [
+    new webpack.BannerPlugin(banner)
+  ]
 };
 
