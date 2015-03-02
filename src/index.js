@@ -205,7 +205,10 @@ var InputPassword = React.createClass({
         </span>
         <span style={this.getMeterStyle(this.state.score)} className="passwordField__meter" />
         <span style={this.strengthLangStyle} className="passwordField__strength">
-          {this.props.zxcvbn && this.props.strengthLang.length > 0 ? this.props.strengthLang[this.state.score] : null}
+          {this.props.zxcvbn &&
+            this.state.value.length > 0 &&
+            this.props.strengthLang.length > 0 ?
+              this.props.strengthLang[this.state.score] : null}
         </span>
       </div>
     }
