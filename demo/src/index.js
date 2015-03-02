@@ -20,7 +20,7 @@ var React         = require('react'),
 React.render(
   <form>
     <fieldset>
-      <label htmlFor="password1">Passwordssss</label>
+      <label htmlFor="password1">Password</label>
       <InputPassword
         id="password1"
         name="password1"

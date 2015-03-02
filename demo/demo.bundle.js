@@ -1,7 +1,7 @@
 !function(t){function e(a){if(n[a])return n[a].exports;var r=n[a]={exports:{},id:a,loaded:!1};return t[a].call(r.exports,r,r.exports,e),r.loaded=!0,r.exports}var n={};return e.m=t,e.c=n,e.p="",e(0)}([/*!***************************!*\
   !*** ./demo/src/index.js ***!
   \***************************/
-function(t,e,n){"use strict";n(/*! normalize.css/normalize.css */7),n(/*! ./vendor/skeleton.css */5),n(/*! ./vendor/github.css */4),n(/*! ./vendor/syntax.css */6),n(/*! ./vendor/rainbow-custom.min.js */2),n(/*! ./css/style.scss */9),n(/*! ./css/demo.scss */8);var a=n(/*! react */1),r=n(/*! ../../lib/react-ux-password-field.js */3);a.render(a.createElement("form",null,a.createElement("fieldset",null,a.createElement("label",{htmlFor:"password1"},"Passwordssss"),a.createElement(r,{id:"password1",name:"password1",placeholder:"Try me out!  Enter a random password.",minScore:1,minLength:5}))),document.getElementById("content"))},/*!************************!*\
+function(t,e,n){"use strict";n(/*! normalize.css/normalize.css */7),n(/*! ./vendor/skeleton.css */5),n(/*! ./vendor/github.css */4),n(/*! ./vendor/syntax.css */6),n(/*! ./vendor/rainbow-custom.min.js */2),n(/*! ./css/style.scss */9),n(/*! ./css/demo.scss */8);var a=n(/*! react */1),r=n(/*! ../../lib/react-ux-password-field.js */3);a.render(a.createElement("form",null,a.createElement("fieldset",null,a.createElement("label",{htmlFor:"password1"},"Password"),a.createElement(r,{id:"password1",name:"password1",placeholder:"Try me out!  Enter a random password.",minScore:1,minLength:5}))),document.getElementById("content"))},/*!************************!*\
   !*** external "React" ***!
   \************************/
 function(t){t.exports=React},/*!***********************************************!*\
