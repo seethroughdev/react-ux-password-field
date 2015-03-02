@@ -1,7 +1,7 @@
 var path              = require('path');
 var autoprefixer      = require('autoprefixer-core');
 var csswring          = require('csswring');
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   // the entry point of your library
@@ -21,8 +21,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!!postcss-loader") },
-      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!!postcss-loader!sass?outputStyle=expanded') },
+      { test: /\.css/, loader: ExtractTextPlugin.extract("style-loader", "css-loader!postcss-loader") },
+      { test: /\.scss$/, loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader?outputStyle=expanded') },
       { test: /\.js$/, loader: 'babel-loader'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
