@@ -35,9 +35,8 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^5.1.7",
-    "autoprefixer-loader": "^1.1.0",
-    "babel": "^4.6.3",
-    "babel-core": "^4.6.3",
+    "babel": "^4.6.5",
+    "babel-core": "^4.6.5",
     "babel-jest": "^4.0.0",
     "babel-loader": "^4.0.0",
     "css-loader": ">=0.9.1",
