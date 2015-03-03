@@ -74,7 +74,8 @@ var InputPassword = React.createClass({
     position: 'absolute',
     bottom: -10,
     width: '100%',
-    overflow: 'hidden'
+    overflow: 'hidden',
+    height: 24
   },
 
   iconStyle: {
@@ -82,14 +83,13 @@ var InputPassword = React.createClass({
     opacity: .25,
     position: 'relative',
     top: 2,
-    width: '4%'
+    width: '3%'
   },
 
   strengthLangStyle: {
     fontSize: 12,
     position: 'relative',
     top: 2,
-    width: '2%'
   },
 
 
