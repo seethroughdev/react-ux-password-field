@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "webpack --watch --port 9501 --colors",
     "demo": "webpack-dev-server --config webpack.server.config.js --content-base ./dev_server --port 9500 --colors --hot",
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest",
     "build": "webpack && webpack -p --config webpack.min.config.js && webpack -p -d --config webpack.demo.config.js",
     "deploy": "gh-pages-deploy"
   },
@@ -38,12 +38,14 @@
     "autoprefixer-loader": "^1.1.0",
     "babel": "^4.6.3",
     "babel-core": "^4.6.3",
+    "babel-jest": "^4.0.0",
     "babel-loader": "^4.0.0",
     "css-loader": ">=0.9.1",
     "csswring": "^3.0.1",
     "extract-text-webpack-plugin": "^0.3.8",
     "file-loader": ">=0.8.1",
     "gh-pages-deploy": "^0.3.0",
+    "jest-cli": "^0.4.0",
     "jsx-loader": ">=0.12.2",
     "lodash.debounce": "^3.0.2",
     "normalize.css": "^3.0.2",
@@ -61,5 +63,17 @@
       "build"
     ],
     "noprompt": false
+  },
+  "jest": {
+    "scriptPreprocessor": "<rootDir>/node_modules/babel-jest",
+    "testFileExtensions": [
+      "es6",
+      "js"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "es6"
+    ]
   }
 }
