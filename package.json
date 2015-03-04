@@ -1,6 +1,6 @@
 {
   "name": "react-ux-password-field",
-  "version": "0.9.1",
+  "version": "0.9.2",
   "main": "lib/react-ux-password-field.js",
   "description": "A UX forward password field for react-js",
   "scripts": {
@@ -35,8 +35,8 @@
   },
   "devDependencies": {
     "autoprefixer-core": "^5.1.7",
-    "babel": "^4.6.5",
-    "babel-core": "^4.6.5",
+    "babel": "^4.6.6",
+    "babel-core": "^4.6.6",
     "babel-jest": "^4.0.0",
     "babel-loader": "^4.0.0",
     "css-loader": ">=0.9.1",
@@ -49,11 +49,12 @@
     "lodash.debounce": "^3.0.2",
     "normalize.css": "^3.0.2",
     "postcss-loader": "^0.3.0",
+    "root-require": "^0.3.1",
     "sass-loader": "^0.4.0",
     "script-loader": ">=0.6.1",
     "style-loader": ">=0.8.3",
     "url-loader": ">=0.5.5",
-    "webpack": "^1.6.0",
+    "webpack": "^1.7.1",
     "webpack-dev-server": "^1.7.0"
   },
   "gh-pages-deploy": {
