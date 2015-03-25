@@ -118,6 +118,7 @@ var InputPassword = React.createClass({
       isValid: e.target.validity.valid
     });
 
+    this.props.onChange(val, e.target.validity.valid)
 
     if (this.props.toggleMask) {
       this.handleToggleMask();
@@ -213,6 +214,7 @@ var InputPassword = React.createClass({
       </div>
     }
 
+    var {onChange, ...props} = this.props;
     return (
       <div
         style={{position: 'relative', display: 'inline-block'}}
@@ -228,7 +230,7 @@ var InputPassword = React.createClass({
           value={this.state.value}
           style={this.state.isPassword ? null : this.unMaskStyle}
           onChange={this.handleChange}
-          {...this.props}
+          {...props}
         />
         {infoBar}
       </div>
