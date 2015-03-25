@@ -31,7 +31,7 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.js$/, loader: 'babel-loader'},
+      { test: /\.js$/, loader: 'babel-loader?experimental'},
       { test: /\.png/, loader: "url?limit=100000&mimetype=image/png" }
     ]
   },
