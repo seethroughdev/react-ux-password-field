@@ -43,7 +43,8 @@ var InputPassword = React.createClass({
       value: '',
       score: 0,
       entropy: 0,
-      isPassword: true
+      isPassword: true,
+      isValid: false
     }
   },
 
@@ -118,6 +119,8 @@ var InputPassword = React.createClass({
       isValid: e.target.validity.valid
     });
 
+    // call onChange prop passed from parent
+    this.props.onChange(val, this.state.isValid, this.state.score)
 
     if (this.props.toggleMask) {
       this.handleToggleMask();
@@ -213,6 +216,9 @@ var InputPassword = React.createClass({
       </div>
     }
 
+    // allow onChange to be passed from parent and not override default prop
+    var {onChange, ...props} = this.props;
+
     return (
       <div
         style={{position: 'relative', display: 'inline-block'}}
@@ -228,7 +234,7 @@ var InputPassword = React.createClass({
           value={this.state.value}
           style={this.state.isPassword ? null : this.unMaskStyle}
           onChange={this.handleChange}
-          {...this.props}
+          {...props}
         />
         {infoBar}
       </div>

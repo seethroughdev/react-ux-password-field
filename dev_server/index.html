@@ -148,6 +148,13 @@ render: function() {
     </p>
 
     <hr>
+    <h4>Callback</h4>
+    <h5>onChange <span>(function(event, isValid, score))</span></h5>
+    <p>
+      <pre><code data-language="html">onChange={funcName}</code></pre> will NOT override the native onChange method.  Instead it will be called during the native onChange method, and pass the event, isValid and zxcvbn score through.
+    </p>
+
+    <hr>
     <h3>Contributing</h3>
     <p>
       Pull requests are welcomed, please file an issue explaining the problem you're solving first, and pull-request to an upstream branch instead of master.

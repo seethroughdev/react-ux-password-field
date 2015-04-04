@@ -14,8 +14,12 @@ require('./css/demo.scss');
 
 /*==========  APP  ==========*/
 
-var React         = require('react'),
+const React         = require('react'),
     InputPassword = require('../../lib/react-ux-password-field.js');
+
+// Demo callback
+const cb = (e, valid, score) =>
+  console.log('Running callback', e, valid, score);
 
 React.render(
   <form>
@@ -27,6 +31,7 @@ React.render(
         placeholder="Try me out!  Enter a random password."
         minScore={1}
         minLength={5}
+        onChange={cb}
       />
     </fieldset>
   </form>
