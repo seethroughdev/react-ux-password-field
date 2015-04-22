@@ -120,7 +120,9 @@ var InputPassword = React.createClass({
     });
 
     // call onChange prop passed from parent
-    this.props.onChange(val, this.state.isValid, this.state.score)
+    if (this.props.onChange) {
+      this.props.onChange(val, this.state.isValid, this.state.score);
+    }
 
     if (this.props.toggleMask) {
       this.handleToggleMask();
