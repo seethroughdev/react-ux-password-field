@@ -150,6 +150,11 @@ var InputPassword = React.createClass({
   },
 
   handleZxcvbn(val) {
+    // Check if zxcvbn has finished loading to avoid race conditions
+    if (!zxcvbn) {
+      return
+    }
+
     var stats        = zxcvbn(val),
         currentScore = stats.score;
 
