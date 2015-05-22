@@ -52,7 +52,7 @@ var InputPassword = React.createClass({
   /*==========  STYLES  ==========*/
 
   getMeterStyle(score) {
-    var width = 24 * score + 4;
+    var width = this.state.value === '' ? 0 : 24 * score + 4;
     return {
       width: this.props.zxcvbn ? width + '%' : '100%',
       maxWidth: '85%',
@@ -150,6 +150,11 @@ var InputPassword = React.createClass({
   },
 
   handleZxcvbn(val) {
+
+    if (!zxcvbn) {
+      return;
+    }
+
     var stats        = zxcvbn(val),
         currentScore = stats.score;
 
