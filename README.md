@@ -41,3 +41,7 @@ React UX Password Field will work fine with its defaults, but there is a lot
 of configuration options.
 
 Read them on the site: [https://seethroughtrees.github.io/react-ux-password-field/](https://seethroughtrees.github.io/react-ux-password-field/)
+
+## Contributing
+
+Pull requests are happily welcomed, please [https://github.com/seethroughtrees/react-ux-password-field/issues](create an issue) explaining the problem you're solving first, and pull-request to an upstream branch instead of master.
