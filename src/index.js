@@ -112,30 +112,33 @@ var InputPassword = React.createClass({
 
   handleChange(e) {
     e.preventDefault();
+
     var val = e.target.value;
+    var score;
 
     this.setState({
       value: val,
       isValid: e.target.validity.valid
     });
 
-    // call onChange prop passed from parent
-    if (this.props.onChange) {
-      this.props.onChange(val, this.state.isValid, this.state.score);
-    }
-
     if (this.props.toggleMask) {
       this.handleToggleMask();
     }
 
     if (this.props.zxcvbn) {
-      this.handleZxcvbn(val);
+      score = this.handleZxcvbn(val);
+    } else {
+      score = this.state.score;
+    }
+
+    // call onChange prop passed from parent
+    if (this.props.onChange) {
+      this.props.onChange(val, this.state.isValid, score);
     }
 
     if (this.props.minLength) {
       this.handleMinLength(e.target.value.length)
     }
-
   },
 
   handleToggleMask() {
@@ -171,12 +174,14 @@ var InputPassword = React.createClass({
 
     // if score changed and callback provided
     if (this.props.changeCb && this.state.score !== currentScore) {
-      this.props.changeCb(this.state.score, currentScore)
+      this.props.changeCb(this.state.score, currentScore, val)
     }
 
     if (this.props.zxcvbn === 'debug') {
       console.debug(stats);
     }
+
+    return currentScore;
   },
 
   handleMinLength(len) {
