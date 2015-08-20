@@ -2,6 +2,7 @@
   "name": "react-ux-password-field",
   "version": "0.9.6",
   "main": "src/index.js",
+  "browser": "./lib/react-ux-password-field.js",
   "description": "A UX forward password field for react-js",
   "scripts": {
     "dev": "webpack --watch --port 9501 --colors",
