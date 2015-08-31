@@ -67,7 +67,6 @@ var InputPassword = React.createClass({
 
   unMaskStyle: {
     color: config.unMaskColor,
-    fontStyle: 'italic',
     fontWeight: 200
   },
 
