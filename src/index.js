@@ -19,7 +19,8 @@ var InputPassword = React.createClass({
     toggleMask: RP.bool,
     unMaskTime: RP.number,
     minLength: RP.number,
-    strengthLang:RP.array
+    strengthLang:RP.array,
+    id: RP.string,
   },
 
 
@@ -34,7 +35,8 @@ var InputPassword = React.createClass({
       minScore: 0,
       toggleMask: true,
       unMaskTime: config.unMaskTime,
-      strengthLang: config.strengthLang
+      strengthLang: config.strengthLang,
+      id: 'input'
     }
   },
 
