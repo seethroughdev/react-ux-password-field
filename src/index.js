@@ -19,7 +19,8 @@ var InputPassword = React.createClass({
     toggleMask: RP.bool,
     unMaskTime: RP.number,
     minLength: RP.number,
-    strengthLang:RP.array
+    strengthLang:RP.array,
+    id: RP.string,
   },
 
 
@@ -34,7 +35,8 @@ var InputPassword = React.createClass({
       minScore: 0,
       toggleMask: true,
       unMaskTime: config.unMaskTime,
-      strengthLang: config.strengthLang
+      strengthLang: config.strengthLang,
+      id: 'input'
     }
   },
 
@@ -112,12 +114,15 @@ var InputPassword = React.createClass({
   handleChange(e) {
     e.preventDefault();
 
+    var native_target = e.nativeEvent.target;
     var val = e.target.value;
     var score;
 
     this.setState({
       value: val,
-      isValid: e.target.validity.valid
+      isValid: e.target.validity.valid,
+      selectionStart : native_target.selectionStart,
+      selectionEnd : native_target.selectionEnd,
     });
 
     if (this.props.toggleMask) {
@@ -229,6 +234,15 @@ var InputPassword = React.createClass({
 
     // allow onChange to be passed from parent and not override default prop
     var {onChange, ...props} = this.props;
+
+    // overcome problem with firefox resetting the input selection point
+    var that = this;
+    setTimeout(function() {
+      if (!/Firefox/.test(navigator.userAgent)) return;
+      var elem = that.refs[that.props.id].getDOMNode();
+      elem.selectionStart = that.state.selectionStart;
+      elem.selectionEnd = that.state.selectionEnd;
+    }, 1);
 
     return (
       <div
