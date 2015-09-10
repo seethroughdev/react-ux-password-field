@@ -1,8 +1,7 @@
 # Change Log
 
-## [Unreleased](https://github.com/seethroughtrees/react-ux-password-field/tree/HEAD)
-
-[Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/0.9.8...HEAD)
+## [0.9.9](https://github.com/seethroughtrees/react-ux-password-field/tree/0.9.9) (2015-09-10)
+[Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/0.9.8...0.9.9)
 
 **Closed issues:**
 
@@ -11,6 +10,13 @@
 - Warning: setState\(...\): Can only update a mounted or mounting component. This usually means you called setState\(\) on an unmounted component. This is a no-op. [\#14](https://github.com/seethroughtrees/react-ux-password-field/issues/14)
 
 ## [0.9.8](https://github.com/seethroughtrees/react-ux-password-field/tree/0.9.8) (2015-08-31)
+[Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/list...0.9.8)
+
+**Closed issues:**
+
+- Why is v0.9.7 on npm when you are still on v0.9.6? [\#23](https://github.com/seethroughtrees/react-ux-password-field/issues/23)
+
+## [list](https://github.com/seethroughtrees/react-ux-password-field/tree/list) (2015-08-20)
 **Implemented enhancements:**
 
 - Hide meter until user starts typing [\#11](https://github.com/seethroughtrees/react-ux-password-field/issues/11)
@@ -21,7 +27,6 @@
 
 **Closed issues:**
 
-- Why is v0.9.7 on npm when you are still on v0.9.6? [\#23](https://github.com/seethroughtrees/react-ux-password-field/issues/23)
 - Pass on the value in changeCb\(\) too [\#17](https://github.com/seethroughtrees/react-ux-password-field/issues/17)
 - this.props.onChange\(\) should be called after handleZxcvbn [\#16](https://github.com/seethroughtrees/react-ux-password-field/issues/16)
 - using it directly on bower [\#10](https://github.com/seethroughtrees/react-ux-password-field/issues/10)
