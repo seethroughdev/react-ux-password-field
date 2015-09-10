@@ -12,7 +12,7 @@ function(t,e,n){"use strict";window.Rainbow=function(){function t(t){var e,n=t.g
   \****************************************/
 function(t,e,n){/*!
 	 * React UX Password Field
-	 * version: 0.9.8
+	 * version: 0.9.9
 	 * 
 	 * MIT Licensed
 	 * github: https://github.com/seethroughtrees/react-ux-password-field/
