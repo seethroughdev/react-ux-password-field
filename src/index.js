@@ -214,6 +214,14 @@ var InputPassword = React.createClass({
     }
   },
 
+  componentWillUnmount() {
+    // cancel the debouncer when component is not used anymore. This to avoid
+    // setting the state  unnecessarily, see issue #24
+    if (this.maskPassword) {
+      this.maskPassword.cancel()
+    }
+  },
+
   render() {
     var infoBar;
 
