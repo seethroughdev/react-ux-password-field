@@ -204,8 +204,8 @@ var InputPassword = React.createClass({
 
       zxcvbnSrc = this.props.zxcvbn !== 'debug' ? this.props.zxcvbn : config.zxcvbnSrc;
 
-    // snippet to async load zxcvbn if enabled
-    (function(){var a;a=function(){var a,b;b=document.createElement("script");b.src=zxcvbnSrc;b.type="text/javascript";b.async=!0;a=document.getElementsByTagName("head")[0];return a.parentNode.insertBefore(b,a)};null!=window.attachEvent?window.attachEvent("onload",a):window.addEventListener("load",a,!1)}).call(this);
+      // snippet to async load zxcvbn if enabled
+      (function(){var a,b;b=document.createElement("script");b.src=zxcvbnSrc;b.type="text/javascript";b.async=!0;a=document.getElementsByTagName("head")[0];a.parentNode.insertBefore(b,a);}).call(this);
     }
 
     // set debouncer for password
