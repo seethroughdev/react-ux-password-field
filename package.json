@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "lodash.debounce": "^4.0.6",
-    "react": ">=15.0.1"
+    "react": ">=0.13.0"
   },
   "devDependencies": {
     "autoprefixer-core": "^6.0.1",
