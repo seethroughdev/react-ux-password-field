@@ -246,7 +246,7 @@ var InputPassword = React.createClass({
     // overcome problem with firefox resetting the input selection point
     var that = this;
     setTimeout(function() {
-      if (!/Firefox/.test(navigator.userAgent)) return;
+      if (typeof navigator !== 'undefined' && !/Firefox/.test(navigator.userAgent)) return;
       var elem = that.refs[that.props.id].getDOMNode();
       elem.selectionStart = that.state.selectionStart;
       elem.selectionEnd = that.state.selectionEnd;
