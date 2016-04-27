@@ -1,5 +1,35 @@
 # Change Log
 
+## [Unreleased](https://github.com/seethroughtrees/react-ux-password-field/tree/HEAD)
+
+[Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/0.9.10...HEAD)
+
+**Closed issues:**
+
+- dangerouslySetInnerHTML error when nesting HTML within InputPassword component [\#35](https://github.com/seethroughtrees/react-ux-password-field/issues/35)
+- Organize npm dependencies [\#33](https://github.com/seethroughtrees/react-ux-password-field/issues/33)
+- When 'handleChange' is called the wrong 'isValid' value is sent to parent component [\#28](https://github.com/seethroughtrees/react-ux-password-field/issues/28)
+
+**Merged pull requests:**
+
+- Feature/update [\#38](https://github.com/seethroughtrees/react-ux-password-field/pull/38) ([seethroughtrees](https://github.com/seethroughtrees))
+- adds check for existence of global navigator variable [\#37](https://github.com/seethroughtrees/react-ux-password-field/pull/37) ([AppSorcery](https://github.com/AppSorcery))
+- Move build-time npm packages to devDependencies [\#34](https://github.com/seethroughtrees/react-ux-password-field/pull/34) ([ahoym](https://github.com/ahoym))
+- Load zxcvbn when component is mounted. Fixes \#27. [\#31](https://github.com/seethroughtrees/react-ux-password-field/pull/31) ([dylanjbarth](https://github.com/dylanjbarth))
+
+## [0.9.10](https://github.com/seethroughtrees/react-ux-password-field/tree/0.9.10) (2015-10-19)
+[Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/0.9.9...0.9.10)
+
+**Closed issues:**
+
+- Do not call addPasswordType\(\) when umounted [\#25](https://github.com/seethroughtrees/react-ux-password-field/issues/25)
+- Input behaves weird on latest Firefox [\#15](https://github.com/seethroughtrees/react-ux-password-field/issues/15)
+- Need DOM access to password input [\#9](https://github.com/seethroughtrees/react-ux-password-field/issues/9)
+
+**Merged pull requests:**
+
+- Fixes \#25 which will cancel the debouncer when umounted. Also bumps J… [\#26](https://github.com/seethroughtrees/react-ux-password-field/pull/26) ([binarykitchen](https://github.com/binarykitchen))
+
 ## [0.9.9](https://github.com/seethroughtrees/react-ux-password-field/tree/0.9.9) (2015-09-10)
 [Full Changelog](https://github.com/seethroughtrees/react-ux-password-field/compare/0.9.8...0.9.9)
 
@@ -41,7 +71,7 @@
 
 - Add "browser" field to package.json [\#20](https://github.com/seethroughtrees/react-ux-password-field/pull/20) ([brigand](https://github.com/brigand))
 - Add more parameters in callbacks and bump packages [\#18](https://github.com/seethroughtrees/react-ux-password-field/pull/18) ([binarykitchen](https://github.com/binarykitchen))
-- onChange branch change [\#2](https://github.com/seethroughtrees/react-ux-password-field/pull/2) ([Dignifiedquire](https://github.com/Dignifiedquire))
+- onChange branch change [\#2](https://github.com/seethroughtrees/react-ux-password-field/pull/2) ([dignifiedquire](https://github.com/dignifiedquire))
 
 
 
