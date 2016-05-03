@@ -12,6 +12,7 @@
 
 **Merged pull requests:**
 
+- fixes additional prerendering bug from getDOMNode\(\) [\#39](https://github.com/seethroughtrees/react-ux-password-field/pull/39) ([AppSorcery](https://github.com/AppSorcery))
 - Feature/update [\#38](https://github.com/seethroughtrees/react-ux-password-field/pull/38) ([seethroughtrees](https://github.com/seethroughtrees))
 - adds check for existence of global navigator variable [\#37](https://github.com/seethroughtrees/react-ux-password-field/pull/37) ([AppSorcery](https://github.com/AppSorcery))
 - Move build-time npm packages to devDependencies [\#34](https://github.com/seethroughtrees/react-ux-password-field/pull/34) ([ahoym](https://github.com/ahoym))
