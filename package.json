@@ -1,6 +1,6 @@
 {
   "name": "react-ux-password-field",
-  "version": "0.9.11",
+  "version": "0.9.12",
   "license": "MIT",
   "main": "src/index.js",
   "browser": "./lib/react-ux-password-field.js",
