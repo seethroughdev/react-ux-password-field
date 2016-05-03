@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>React UX Password Field</title>
+  <meta name="description" content="">
+  <meta name="viewport" id="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0" >
+  <link href='//fonts.googleapis.com/css?family=Roboto+Slab:300,600' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <div class="ribbon left red">
+    <a href="https://github.com/seethroughtrees/react-ux-password-field">Fork me on GitHub</a>
+  </div>
+
+  <div class="container">
+    <header class="header">
+      <h1>React UX Password Field</h1>
+      <hr>
+    </header>
+
+    <div id="content"></div>
+
+    <p>This react component aims to improve common issues in password field UX.</p>
+    <ol>
+      <li>
+        <strong>Password Strength Detection</strong> - Show the password complexity using Dropbox's <a href="https://blogs.dropbox.com/tech/2012/04/zxcvbn-realistic-password-strength-estimation/">zxcvbn</a> library, loaded async and updated onChange.
+      </li>
+      </li>
+      <li><strong>Timed Password Masking</strong> - Users make errors when they can't see the password field.  React UX Password temporarily shows the password, then hides after a configurable 1200ms.  Best explained in the <a href="http://www.nngroup.com/articles/stop-password-masking/">nngroup</a> article: <a href="http://www.nngroup.com/articles/stop-password-masking/">Stop Password Masking</a>
+      </li>
+      <li><strong>Stateful Class</strong> - Know the HTML5 validity of your field by class.</li>
+    </ol>
+
+    <p><em>Inspect element to see all your password info with <a href="#passwordStrength">debug mode</a> on!</em></p>
+
+    <hr>
+
+    <h3>Install</h3>
+    <pre>
+      <code data-language="shell">npm install react-ux-password-field</code>
+    </pre>
+    <p>View it on <a href="https://github.com/seethroughtrees/react-ux-password-field">Github</a></p>
+    <hr>
+
+    <h3>Use</h3>
+    <pre>
+      <code data-language="js">// use it like any other react component.
+// just require and place it inside your render function.
+
+var InputPassword = require('react-ux-password-field');
+
+...
+
+render: function() {
+  return (
+    &lt;InputPassword />
+  )
+}
+      </code>
+    </pre>
+    <p><em>* React UX Password Field is UMD compatible, meaning it will load with
+    <a href="http://wiki.commonjs.org/wiki/CommonJS">commonJS</a>, <a href="http://requirejs.org/">AMD/RequireJS</a>, or standalone.</em></p>
+    <hr>
+    <h3>Options (props)</h3>
+    <p>Add your attributes normally like you would any password field. (id, placeholder, required, pattern etc...) But now you get the following extras:</p>
+    <hr>
+
+    <h4>Info Bar</h4>
+
+    <h5>
+    infoBar <span>(bool)</span> <span class="default">default: true</span>
+    </h5>
+    <p>
+      <pre><code data-language="html">infoBar={false}</code></pre> will disable the visible meter below the field.</p>
+    <p>
+      You can still rely on the attributes in the container class to do any other logic including.
+    </p>
+    <ul>
+      <li><strong>data-valid</strong> - current valid state of the field.</li>
+      <li><strong>data-score</strong> - current password strength score.</li>
+      <li><strong>data-entropy</strong> - current password entropy.</li>
+    </ul>
+
+    <hr>
+
+    <h4>Password Strength</h4>
+
+    <h5>zxcvbn <span>(bool|string)</span> <span class="default">default: true</span></h5>
+    <p>
+      <pre><code data-language="html">zxcvbn={false}</code></pre> If false is passed. zxcvbn will be disabled. You can also pass an alternate source in a string to modify the async loaded source. default is: <a href="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/1.0/zxcvbn.min.js">https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/1.0/zxcvbn.min.js</a>
+    </p>
+    <p>
+      You can also pass "debug" as your string and it will console.log the zxcvbn object returned on each password change.
+    </p>
+    <p>
+      <em>Note: zxcvbn is loaded async as it is a pretty big file.  The async load time usually isn't an issue for a password usecase, if it is.  Consider disabling and moving to a server-side load.</em>
+    </p>
+
+    <hr>
+
+    <h5>minScore <span>(number)</span> <span class="default">default: 0</span></h5>
+    <p>
+      <pre><code data-language="html">minScore={2}</code></pre> provides a password strength score based on 0-4. You can set the minimum accepted score for the field to be considered valid. Note: Dropbox who created and uses the library, does not set a minimum score, but does provide the info for the user.
+    </p>
+
+    <hr>
+    <h5>statusColor <span>(string)</span><span class="default">#5CE592</span></h5>
+    <p>
+      <pre><code data-language="html">statusColor="#5CE592"</code></pre> will change the default valid color in the bar.
+    </p>
+
+    <hr>
+    <h5>statusInactiveColor <span>(string)</span><span class="default">#FC6F6F</span></h5>
+    <p>
+      <pre><code data-language="html">statusInactiveColor="#FC6F6F"</code></pre> will change the default invalid color in the bar.
+    </p>
+
+    <hr>
+    <h5>strengthLang <span>(array)</span><span class="default">['Weak', 'Okay', 'Good', 'Strong', 'Great']</span></h5>
+    <p>
+      <pre><code data-language="html">strengthLang={['Bad', 'Not good', 'Decent', 'Strong', 'Great']}</code></pre> will modify the text shown next to the bar.  You can pass an empty array to remove the text.
+    </p>
+
+    <hr>
+    <h5>changeCb <span>(function(oldValue, newValue))</span></h5>
+    <p>
+      <pre><code data-language="html">changeCb={funcName}</code></pre> will call your callback on zxcvbn level change. It will pass in the old and new value. You can use this to hook other state related to the quality of the password if needed.
+    </p>
+
+    <hr>
+    <h4>Masking</h4>
+
+    <h5>toggleMask <span>(bool)</span> <span class="default">default: true</span></h5>
+    <p>
+      <pre><code data-language="html">toggleMask={false}</code></pre> will disable the temporarily unmasking password, and it will revert to acting like a normal password field which masks the entire time.
+    </p>
+
+    <h5>unMaskTime <span>(number in ms.)</span> <span class="default">default: 1400</span></h5>
+    <p>
+      <pre><code data-language="html">unMaskTime={1400}</code></pre> will change the default length a password field is unmasked for.  *This is debounced, so the count will only start when typing is paused.
+    </p>
+
+    <hr>
+    <h4>HTML5 Attributes</h4>
+
+
+    <h5>minLength <span>(number)</span></h5>
+    <p>
+      <pre><code data-language="html">minLength={7}</code></pre> currently, the html5 spec only provides <a href="#">maxLength</a> property. But react makes it easy to add a minLength as well. <em>This can also easily be implemented with the <a href="#">pattern field</a>.</em>
+    </p>
+
+    <p>
+      <strong>You can also use all the default HTML5 input validation attributes, like <a href="#">maxLength</a>, <a href="#">pattern</a>, <a href="#">required</a> etc...</strong>
+    </p>
+
+    <hr>
+    <h3>Contributing</h3>
+    <p>
+      Pull requests are welcomed, please file an issue explaining the problem you're solving first, and pull-request to an upstream branch instead of master.
+    </p>
+
+  </div>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.min.js"></script>
+  <script src="demo.bundle.js"></script>
+
+</body>
+
+</html>

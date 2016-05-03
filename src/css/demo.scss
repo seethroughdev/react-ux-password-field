@@ -1,0 +1,43 @@
+form {
+  width: 100%;
+  margin: 40px auto;
+  background: #f1f1f1;
+  border-radius: 5px;
+  padding: 3em 2em;
+  color: #555;
+}
+
+fieldset {
+  border: 0;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+label {
+  font-size: 12px;
+  text-transform: uppercase;
+  display: block;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+input[type="email"], input[type="number"], input[type="search"], input[type="text"], input[type="tel"], input[type="url"], input[type="password"], textarea, select {
+  line-height: 2.5;
+  height: auto;
+  border-radius: 0;
+  font-size: 1.25em;
+  padding: 8px 20px;
+  outline: none;
+  width: 100%;
+  &:focus {
+    border: 1px solid #c3c3c3;
+  }
+}
+
+.passwordField {
+  width: 100%;
+}
+
+.passwordField__strength {
+  color: #999;
+}
