@@ -24,6 +24,7 @@ React.render(
       <InputPassword
         id="password1"
         name="password1"
+        lockIconLight={false}
         placeholder="Try me out!  Enter a random password."
         minScore={1}
         minLength={5}

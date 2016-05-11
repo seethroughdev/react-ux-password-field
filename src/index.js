@@ -14,6 +14,7 @@ var InputPassword = React.createClass({
     infoBar: RP.bool,
     statusColor: RP.string,
     statusInactiveColor: RP.string,
+    lockIconLight: RP.bool,
     minScore: RP.number,
     changeCb: RP.func,
     toggleMask: RP.bool,
@@ -31,6 +32,7 @@ var InputPassword = React.createClass({
       infoBar: true,
       statusColor: config.statusColor,
       statusInactiveColor: config.statusInactiveColor,
+      lockIconLight: config.lockIconLight,
       zxcvbn: config.zxcvbnSrc,
       minScore: 0,
       toggleMask: true,
@@ -228,7 +230,7 @@ var InputPassword = React.createClass({
     if (this.props.infoBar) {
       infoBar = <div className="passwordField__info" style={this.infoStyle}>
         <span style={this.iconStyle} className="passwordField__icon">
-        <img src={require('./img/lock.png')} height="10" width="10"  />
+        <img src={this.props.lockIconLight ? require('./img/lock_light.png') : require('./img/lock.png') } height="10" width="10"  />
         </span>
         <span style={this.getMeterStyle(this.state.score)} className="passwordField__meter" />
         <span style={this.strengthLangStyle} className="passwordField__strength">
