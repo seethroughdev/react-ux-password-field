@@ -19,7 +19,8 @@ var InputPassword = React.createClass({
     toggleMask: RP.bool,
     unMaskTime: RP.number,
     minLength: RP.number,
-    strengthLang:RP.array
+    strengthLang:RP.array,
+    id: RP.string,
   },
 
 
@@ -34,7 +35,8 @@ var InputPassword = React.createClass({
       minScore: 0,
       toggleMask: true,
       unMaskTime: config.unMaskTime,
-      strengthLang: config.strengthLang
+      strengthLang: config.strengthLang,
+      id: 'input'
     }
   },
 
@@ -67,7 +69,6 @@ var InputPassword = React.createClass({
 
   unMaskStyle: {
     color: config.unMaskColor,
-    fontStyle: 'italic',
     fontWeight: 200
   },
 
@@ -112,30 +113,36 @@ var InputPassword = React.createClass({
 
   handleChange(e) {
     e.preventDefault();
+
+    var native_target = e.nativeEvent.target;
     var val = e.target.value;
+    var score;
 
     this.setState({
       value: val,
-      isValid: e.target.validity.valid
+      isValid: e.target.validity.valid,
+      selectionStart : native_target.selectionStart,
+      selectionEnd : native_target.selectionEnd,
     });
-
-    // call onChange prop passed from parent
-    if (this.props.onChange) {
-      this.props.onChange(val, this.state.isValid, this.state.score);
-    }
 
     if (this.props.toggleMask) {
       this.handleToggleMask();
     }
 
     if (this.props.zxcvbn) {
-      this.handleZxcvbn(val);
+      score = this.handleZxcvbn(val);
+    } else {
+      score = this.state.score;
+    }
+
+    // call onChange prop passed from parent
+    if (this.props.onChange) {
+      this.props.onChange(val, this.state.isValid, score);
     }
 
     if (this.props.minLength) {
       this.handleMinLength(e.target.value.length)
     }
-
   },
 
   handleToggleMask() {
@@ -151,7 +158,7 @@ var InputPassword = React.createClass({
 
   handleZxcvbn(val) {
 
-    if (!zxcvbn) {
+    if (typeof zxcvbn === 'undefined' && typeof window.zxcvbn === 'undefined') {
       return;
     }
 
@@ -171,12 +178,14 @@ var InputPassword = React.createClass({
 
     // if score changed and callback provided
     if (this.props.changeCb && this.state.score !== currentScore) {
-      this.props.changeCb(this.state.score, currentScore)
+      this.props.changeCb(this.state.score, currentScore, val)
     }
 
     if (this.props.zxcvbn === 'debug') {
       console.debug(stats);
     }
+
+    return currentScore;
   },
 
   handleMinLength(len) {
@@ -205,6 +214,14 @@ var InputPassword = React.createClass({
     }
   },
 
+  componentWillUnmount() {
+    // cancel the debouncer when component is not used anymore. This to avoid
+    // setting the state  unnecessarily, see issue #24
+    if (this.maskPassword) {
+      this.maskPassword.cancel()
+    }
+  },
+
   render() {
     var infoBar;
 
@@ -225,6 +242,17 @@ var InputPassword = React.createClass({
 
     // allow onChange to be passed from parent and not override default prop
     var {onChange, ...props} = this.props;
+
+    // overcome problem with firefox resetting the input selection point
+    var that = this;
+    if (typeof navigator !== 'undefined') {
+      setTimeout(function() {
+        if (!/Firefox/.test(navigator.userAgent)) return;
+        var elem = that.refs[that.props.id].getDOMNode();
+        elem.selectionStart = that.state.selectionStart;
+        elem.selectionEnd = that.state.selectionEnd;
+      }, 1);
+    }
 
     return (
       <div
