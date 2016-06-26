@@ -1,3 +1,5 @@
+**Please note:** - I'm happy to hear people are getting use out of this component, however, I'm no longer using it or able to maintain it.  Please check out the [issue here](https://github.com/seethroughtrees/react-ux-password-field/issues/44) for updates.
+
 React UX Password Field
 =============
 
