@@ -2,7 +2,7 @@
   "name": "react-ux-password-field",
   "version": "0.9.10",
   "license": "MIT",
-  "main": "src/index.js",
+  "main": "lib/react-ux-password-field.js",
   "browser": "./lib/react-ux-password-field.js",
   "description": "A UX forward password field for react-js",
   "scripts": {
