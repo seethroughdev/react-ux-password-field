@@ -258,7 +258,6 @@ var InputPassword = React.createClass({
 
     return (
       <div
-        style={this.props.wrappedDivStyle}
         className="passwordField"
         data-valid={this.state.isValid}
         data-score={this.state.score}
