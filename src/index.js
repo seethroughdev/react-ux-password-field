@@ -21,6 +21,7 @@ var InputPassword = React.createClass({
     minLength: RP.number,
     strengthLang:RP.array,
     id: RP.string,
+    wrappedDivStyle: RP.object,
   },
 
 
@@ -36,7 +37,8 @@ var InputPassword = React.createClass({
       toggleMask: true,
       unMaskTime: config.unMaskTime,
       strengthLang: config.strengthLang,
-      id: 'input'
+      id: 'input',
+      wrappedDivStyle: {}
     }
   },
 
@@ -256,7 +258,7 @@ var InputPassword = React.createClass({
 
     return (
       <div
-        style={{position: 'relative', display: 'inline-block'}}
+        style={this.props.wrappedDivStyle}
         className="passwordField"
         data-valid={this.state.isValid}
         data-score={this.state.score}
